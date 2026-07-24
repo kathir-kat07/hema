@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Hema</title>
+    
+    <!-- Google Fonts for Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="monk.jpeg">
+    <style>
+        /* --- Color Palette & Variables --- */
+        :root {
+            --bg-color: #fdf2f5;
+            --pink-light: #fce4ec;
+            --pink-soft: #f4b6c2;
+            --pink-mid: #e57373;
+            --pink-accent: #c2185b;
+            --pink-deep: #880e4f;
+            --text-dark: #2c0e18;
+            --text-subtle: #795561;
+            --white: #ffffff;
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-cursive: 'Great Vibes', cursive;
+            --font-sans: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(180deg, #fdf2f5 0%, #fae3eb 50%, #fdf2f5 100%);
+            color: var(--text-dark);
+            font-family: var(--font-sans);
+            overflow-x: hidden;
+            position: relative;
+            
+
+ 
+        }
+
+        /* --- Floating Hearts Background --- */
+        #heart-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .floating-heart {
+            position: absolute;
+            bottom: -80px;
+            color: rgba(229, 115, 115, 0.45);
+            filter: drop-shadow(0 4px 8px rgba(194, 24, 91, 0.2));
+            animation: floatUp linear infinite;
+            user-select: none;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) scale(0.7) rotate(0deg);
+                opacity: 0;
+            }
+            15% {
+                opacity: 0.8;
+            }
+            85% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-125vh) scale(1.3) rotate(35deg);
+                opacity: 0;
+            }
+        }
+
+        /* --- Scroll Reveal Base Animation --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Typography & Headers --- */
+        section {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .sub-header {
+            font-family: var(--font-sans);
+            font-size: clamp(0.85rem, 1.8vw, 1.1rem);
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color:black;
+            text-align: center;
+            margin-bottom: 0.8rem;
+            
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 600;
+            text-align: center;
+            color: var(--text-dark);
+            line-height: 1.2;
+        }
+
+        /* --- Hero Section (Image 1) --- */
+       .hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1.5rem;
+    text-align: center;
+    will-change: opacity, transform;
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+    position: relative; /* REQUIRED for the background pseudo-element */
+    overflow: hidden;    /* Keeps the background inside the container */
+}
+
+/* Background image & blend mode applied only to ::before */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('bck.png');
+    background-color: rgba(248, 200, 226, 0.381);
+    background-blend-mode: lighten;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5; /* Image opacity adjusted here without affecting text! */
+    z-index: 1;   /* Stays behind content */
+}
+
+/* Make sure the container div stays above the background */
+.glasy {
+    position: relative;
+    z-index: 2;
+}
+
+.glasy .content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h2 {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: black;
+    margin-bottom: -0.5rem;
+    font-weight: 600;
+    text-shadow: 0 2px 10px rgba(194, 24, 91, 0.15);
+}
+
+@keyframes pulseGlow {
+    0%, 100% { text-shadow: 0 0 15px rgba(229, 115, 115, 0.3); }
+    50% { text-shadow: 0 0 30px rgba(194, 24, 91, 0.6); }
+}
+
+.hero h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(5.5rem, 18vw, 12rem);
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, var(--text-dark) 0%, var(--pink-deep) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: black;
+    max-width: 600px;
+    line-height: 1.7;
+    font-weight: 400;
+}
+        /* --- Scroll Down Indicator --- */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: var(--pink-accent);
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+            40% { transform: translate(-50%, -10px); }
+            60% { transform: translate(-50%, -5px); }
+        }
+
+        /* --- Continuous Ticker (Image 2) --- */
+        .ticker-wrapper {
+            width: 100%;
+            overflow: hidden;
+            background: linear-gradient(90deg, rgba(244,182,194,0.4) 0%, rgba(252,228,236,0.8) 50%, rgba(244,182,194,0.4) 100%);
+            padding: 1.8rem 0;
+            border-top: 2px solid rgba(194, 24, 91, 0.15);
+            border-bottom: 2px solid rgba(194, 24, 91, 0.15);
+            white-space: nowrap;
+            box-shadow: 0 4px 20px rgba(194, 24, 91, 0.05);
+        }
+
+        .ticker-content {
+            display: inline-block;
+            animation: ticker 20s linear infinite;
+        }
+
+        .ticker-item {
+            display: inline-flex;
+            align-items: center;
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            font-style: italic;
+            font-weight: 600;
+            color: var(--pink-accent);
+            margin-right: 2rem;
+        }
+
+        .ticker-item span.outline {
+            color: transparent;
+            -webkit-text-stroke: 1.5px var(--pink-accent);
+            margin-left: 2rem;
+        }
+
+        .ticker-item .star {
+            font-size: 1.8rem;
+            margin: 0 2rem;
+            color: var(--pink-soft);
+            animation: spinStar 6s linear infinite;
+        }
+
+        @keyframes spinStar {
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* --- Intro Section --- */
+        .intro-section {
+            padding: 7rem 1.5rem 4rem;
+            text-align: center;
+        }
+
+        .decorative-dot {
+            width: 32px;
+            height: 32px;
+            border: 2px solid var(--pink-soft);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem auto 0;
+            animation: pulseDot 2s infinite;
+        }
+
+        .decorative-dot::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background-color: var(--pink-accent);
+            border-radius: 50%;
+        }
+
+        @keyframes pulseDot {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(194, 24, 91, 0.2); }
+            50% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(194, 24, 91, 0); }
+        }
+
+        /* --- Feature Cards (Images 3, 4, 5) --- */
+        .reasons-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 8rem;
+            display: flex;
+            flex-direction: column;
+            gap: 8rem;
+        }
+
+        .reason-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            perspective: 1000px;
+        }
+
+        .reason-card.reverse {
+            direction: rtl;
+        }
+
+        .reason-card.reverse .reason-text {
+            direction: ltr;
+        }
+
+        .image-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 480px;
+            aspect-ratio: 1 / 1;
+            margin: 0 auto;
+            border-radius: 16px;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            transform-style: preserve-3d;
+        }
+
+        .image-wrapper:hover {
+            transform: translateY(-10px) rotateX(4deg) rotateY(-4deg);
+            box-shadow: 0 25px 50px rgba(194, 24, 91, 0.2);
+        }
+
+        .number-badge {
+            position: absolute;
+            top: -30px;
+            left: -30px;
+            font-family: var(--font-serif);
+            font-size: clamp(4rem, 8vw, 6rem);
+            font-weight: 700;
+            color: var(--pink-soft);
+            opacity: 0.8;
+            z-index: 2;
+            line-height: 1;
+            text-shadow: 2px 2px 0px var(--white);
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            border: 4px solid var(--white);
+        }
+
+        .reason-text h3 {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            color: var(--pink-accent);
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            line-height: 1.1;
+        }
+
+        .reason-text p {
+            font-size: clamp(1.05rem, 2vw, 1.25rem);
+            color: var(--text-subtle);
+            line-height: 1.9;
+            font-weight: 400;
+        }
+
+        /* --- Letter Envelope Section (Images 6 & 7) --- */
+        .letter-section {
+            padding: 6rem 1.5rem 10rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .envelope-container {
+            margin-top: 4rem;
+            position: relative;
+            cursor: pointer;
+            width: 100%;
+            max-width: 580px;
+            perspective: 1000px;
+            transition: transform 0.4s ease;
+        }
+
+        .envelope-container:hover {
+            transform: scale(1.03) translateY(-8px);
+        }
+
+        /* Envelope Design */
+        .envelope {
+            width: 100%;
+            height: 360px;
+            background: linear-gradient(135deg, #f8bbd0 0%, #f48fb1 100%);
+            border-radius: 16px;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(194, 24, 91, 0.25);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(255,255,255,0.6);
+        }
+
+        .envelope::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 290px solid rgba(255, 255, 255, 0.4);
+            border-right: 290px solid rgba(255, 255, 255, 0.4);
+            border-bottom: 180px solid transparent;
+            z-index: 1;
+        }
+
+        .envelope::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 290px solid #f48fb1;
+            border-right: 290px solid #f48fb1;
+            border-top: 180px solid transparent;
+            filter: brightness(0.95);
+            z-index: 2;
+        }
+
+        .envelope-flap-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 290px solid transparent;
+            border-right: 290px solid transparent;
+            border-top: 190px solid #f48fb1;
+            z-index: 3;
+            transform-origin: top;
+            transition: transform 0.5s ease;
+        }
+
+        .seal {
+            position: absolute;
+            z-index: 4;
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--pink-accent) 0%, var(--pink-deep) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            border: 3px solid #ff80ab;
+            animation: pulseSeal 2s infinite;
+        }
+
+        @keyframes pulseSeal {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
+
+        .seal svg {
+            width: 28px;
+            height: 28px;
+            fill: currentColor;
+        }
+
+        /* --- Interactive Letter Modal (Image 7) --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(44, 14, 24, 0.65);
+            backdrop-filter: blur(8px);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 1.5rem;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .letter-card {
+            background: #fffdfd;
+            width: 100%;
+            max-width: 580px;
+            padding: 3.5rem 3rem;
+            border-radius: 12px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            transform: scale(0.7) translateY(50px);
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            max-height: 85vh;
+            overflow-y: auto;
+            cursor: pointer;
+            border: 1px solid rgba(244, 182, 194, 0.5);
+        }
+
+        .modal-overlay.active .letter-card {
+            transform: scale(1) translateY(0);
+        }
+
+        .letter-header {
+            font-family: var(--font-cursive);
+            font-size: clamp(3rem, 6vw, 4rem);
+            color: var(--pink-accent);
+            margin-bottom: 2rem;
+            line-height: 1;
+        }
+
+        .letter-body p {
+            font-family: var(--font-serif);
+            font-size: clamp(1.2rem, 2.2vw, 1.45rem);
+            line-height: 1.85;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .letter-footer {
+            margin-top: 2.5rem;
+        }
+
+        .letter-footer .closing {
+            font-family: var(--font-cursive);
+            font-size: 2.2rem;
+            color: var(--pink-accent);
+            display: block;
+        }
+
+        .letter-footer .sign-off {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            font-style: italic;
+            font-weight: 600;
+            color: var(--pink-accent);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .mini-heart {
+            color: var(--pink-accent);
+            font-size: 1.5rem;
+            animation: pulseSeal 1.5s infinite;
+        }
+
+        /* Sparkle Particle Styling */
+        .sparkle {
+            position: absolute;
+            pointer-events: none;
+            background: radial-gradient(circle, #ff80ab 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+            animation: sparkleAnim 0.8s ease-out forwards;
+        }
+
+        @keyframes sparkleAnim {
+            0% { transform: scale(0) translate(0, 0); opacity: 1; }
+            100% { transform: scale(1.5) translate(var(--dx), var(--dy)); opacity: 0; }
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            .reason-card, .reason-card.reverse {
+                grid-template-columns: 1fr;
+                direction: ltr;
+                gap: 2.5rem;
+                text-align: center;
+            }
+
+            .image-wrapper {
+                max-width: 340px;
+            }
+
+            .number-badge {
+                top: -20px;
+                left: -10px;
+            }
+
+            .envelope {
+                height: 280px;
+            }
+
+            .envelope::before, .envelope::after, .envelope-flap-top {
+                border-left-width: 200px;
+                border-right-width: 200px;
+            }
+
+            .letter-card {
+                padding: 2.5rem 1.8rem;
+            }
+        }
+
+
+
+
+
+        /* Scoped Component Container (Inherits parent dimensions or expands to full width) */
+  .sweet19-wrapper {
+    width: 100%;
+    min-height: 100%;
+    font-family: 'Fredoka', cursive, sans-serif;
+    background: linear-gradient(135deg, #ffe4e6 0%, #fbcfe8 50%, #f472b6 100%);
+    color: #831843;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 6%;
+    box-sizing: border-box;
+  }
+
+  .sweet19-wrapper * {
+    box-sizing: border-box;
+  }
+
+  /* Inner Layout */
+  .sweet19-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  /* Left Side: QR Code Area */
+  .sweet19-qr-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .sweet19-qr-card {
+    background: #ffffff;
+    border: 4px dashed #f472b6;
+    border-radius: 24px;
+    padding: 20px;
+    box-shadow: 0 15px 35px rgba(157, 23, 77, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 300px;
+    width: 100%;
+  }
+
+  .sweet19-qr-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+  }
+
+  /* Right Side: Message & Claim details */
+  .sweet19-content-section {
+    flex: 1.5;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .sweet19-tag {
+    background-color: #ffffff;
+    color: #db2777;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 8px 18px;
+    border-radius: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  .sweet19-title {
+    font-size: clamp(2.2rem, 5vw, 4.5rem);
+    line-height: 1.1;
+    color: #db2777;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 3px 3px 0px #ffffff;
+  }
+
+  .sweet19-text {
+    font-size: clamp(1.1rem, 2vw, 1.8rem);
+    color: #9d174d;
+    line-height: 1.3;
+    margin: 0;
+  }
+
+  .sweet19-btn {
+    margin-top: 8px;
+    padding: 14px 32px;
+    font-family: 'Fredoka', cursive, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-decoration: none;
+    background: linear-gradient(45deg, #ec4899, #db2777);
+    border-radius: 50px;
+    box-shadow: 0 8px 20px rgba(219, 39, 119, 0.35);
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+
+  .sweet19-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(219, 39, 119, 0.5);
+    background: linear-gradient(45deg, #db2777, #be185d);
+  }
+
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .sweet19-container {
+      flex-direction: column;
+      text-align: center;
+      gap: 28px;
+    }
+
+    .sweet19-content-section {
+      align-items: center;
+    }
+
+    .sweet19-qr-card {
+      max-width: 220px;
+    }
+  }
+    </style>
+</head>
+<body>
+
+    <!-- Continuous Big Floating Hearts Background -->
+    <div id="heart-container"></div>
+
+    <!-- HERO SECTION (Image 1) -->
+    <section class="hero" id="hero-section">
+        <div class="glasy">
+        <div class="sub-header">A Celebration of You</div>
+        <h2>Happy Birthday</h2>
+        <h1>Hema</h1>
+        <p>Count your life by smiles, not tears. Count your age by friends, not years.</p>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            ↓
+        </div>
+    </section>
+
+    <!-- TICKER BAR & INTRO (Image 2) -->
+    <section>
+        <div class="ticker-wrapper">
+            <div class="ticker-content">
+                <div class="ticker-item">Happy Birthday Hema <span class="star">✦</span> <span class="outline">Happy Birthday Hema</span> <span class="star">✦</span></div>
+                <div class="ticker-item">Happy Birthday Hema <span class="star">✦</span> <span class="outline">Happy Birthday Hema</span> <span class="star">✦</span></div>
+                <div class="ticker-item">Happy Birthday Hema <span class="star">✦</span> <span class="outline">Happy Birthday Hema</span> <span class="star">✦</span></div>
+                <div class="ticker-item">Happy Birthday Hema <span class="star">✦</span> <span class="outline">Happy Birthday Hema</span> <span class="star">✦</span></div>
+            </div>
+        </div>
+
+        <div class="intro-section reveal">
+            <div class="sub-header">A Few Reasons Why</div>
+            <h2 class="section-title">The little things that make you,<br>unmistakably you.</h2>
+            <div class="decorative-dot"></div>
+        </div>
+    </section>
+
+    <!-- REASONS / FEATURES CONTAINER (Images 3, 4, 5) -->
+    <div class="reasons-container">
+        
+        <!-- 01: Laughter -->
+        <div class="reason-card reveal">
+            <div class="image-wrapper">
+                <span class="number-badge">01</span>
+                <img src="l.jpeg" alt="Pink Roses Bouquet">
+            </div>
+            <div class="reason-text">
+                <h3>Your Laughter</h3>
+                <p>It arrives before words do — bright, unguarded, impossible not to catch. On the heaviest days you turned little moments into something worth remembering, and somehow made everyone around you feel lighter.</p>
+            </div>
+        </div>
+
+        <!-- 02: Heart -->
+        <div class="reason-card reverse reveal">
+            <div class="image-wrapper">
+                <span class="number-badge">02</span>
+                <img src="s.jpeg" alt="Soft Pink Flowers">
+            </div>
+            <div class="reason-text">
+                <h3>Your Heart</h3>
+                <p>Fiercely kind, endlessly loyal. You notice the people others overlook, remember the things others forget, and show up in the quiet ways that matter most. Knowing you is a gift I don't take lightly.</p>
+            </div>
+        </div>
+
+        <!-- 03: Memories -->
+        <div class="reason-card reveal">
+            <div class="image-wrapper">
+                <span class="number-badge">03</span>
+                <img src="d.jpeg" alt="Soft Gradient Art">
+            </div>
+            <div class="reason-text">
+                <h3>Our Memories</h3>
+<p>We made so many memories in high school that listing them all would take pages. I want us to stay friends like this forever, and I hope we keep making endless memories together!</p>        
+    </div>
+        </div>
+
+    </div>
+
+    <!-- LETTER ENVELOPE SECTION (Image 6) -->
+    <section class="letter-section reveal">
+        <div class="sub-header">Something I Wrote For You</div>
+        <h2 class="section-title">A little letter</h2>
+        <p style="font-size: 1.05rem; color: var(--text-subtle); margin-top: 0.8rem;">Tap the seal to open it.</p>
+
+        <div class="envelope-container" id="envelope-btn">
+            <div class="envelope">
+                <div class="envelope-flap-top"></div>
+                <div class="seal">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POP-UP LETTER MODAL (Image 7) -->
+    <div class="modal-overlay" id="letter-modal">
+        <div class="letter-card" id="letter-card">
+            <div class="sub-header" style="margin-bottom: 1.5rem;">Something I Wrote For You</div>
+            <h2 class="letter-header">My dearest Hema,</h2>
+            <div class="letter-body">
+                
+                <p>Happy 5 years of us! Honestly, you’ve made my life so much better over these years. Whenever I’m feeling down, you’re the first person I reach out to (even if you still haven't called me back yet!).</p>
+                <p>Everyone drifted away after high school, but you stuck around, and that means everything to me. I trust you with all my personal stories, and I love that you always give me genuine advice when I mess up. We’ve talked for endless hours, and I couldn't be more thankful for your patience, your honesty, and that hilarious laugh of yours. You just have a way of making ordinary days special.</p>
+                <p>I hope we stay like this forever. Stay strong, chase what you love, and never change—people love you exactly as you are. Happy Birthday!"</p>
+            </div>
+            <div class="letter-footer">
+                <span class="closing">Always in your corner,</span>
+                <span class="sign-off">Your friend, forever</span>
+                <div class="mini-heart">♥</div>
+            </div>
+        </div>
+    
+
+
+</div>
+
+
+
+
+
+
+
+    <!-- JavaScript Interactions & Dynamic Animations -->
+    <script>
+        // 1. Enhanced Big Continuous Floating Hearts
+        const heartContainer = document.getElementById('heart-container');
+        const heartSymbols = ['♥', '❥', '❣', '💗'];
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('floating-heart');
+            heart.innerText = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+            
+            // Random sizes up to 60px
+            const startLeft = Math.random() * 100;
+            const size = Math.random() * 32 + 28; 
+            const duration = Math.random() * 5 + 6; 
+            
+            heart.style.left = `${startLeft}vw`;
+            heart.style.fontSize = `${size}px`;
+            heart.style.animationDuration = `${duration}s`;
+            
+            heartContainer.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, duration * 1000);
+        }
+
+        setInterval(createHeart, 300);
+
+        // 2. Continuous Hero Section Fade Out & Scale on Scroll
+        const heroSection = document.getElementById('hero-section');
+        
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            const heroHeight = heroSection.offsetHeight;
+            
+            let opacity = 1 - (scrollY / (heroHeight * 0.6));
+            let scale = 1 - (scrollY / (heroHeight * 3));
+            
+            if (opacity < 0) opacity = 0;
+            if (scale < 0.85) scale = 0.85;
+            
+            heroSection.style.opacity = opacity;
+            heroSection.style.transform = `scale(${scale})`;
+        });
+
+        // 3. Scroll Reveal Animations for Sections & Cards
+        const revealElements = document.querySelectorAll('.reveal');
+
+        function checkReveal() {
+            const triggerBottom = window.innerHeight * 0.88;
+            revealElements.forEach(el => {
+                const elTop = el.getBoundingClientRect().top;
+                if (elTop < triggerBottom) {
+                    el.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkReveal);
+        checkReveal();
+
+        // 4. Interactive Envelope Pop-Up with Sparkle Burst Effect
+        const envelopeBtn = document.getElementById('envelope-btn');
+        const letterModal = document.getElementById('letter-modal');
+
+        function createSparkles(x, y) {
+            for (let i = 0; i < 20; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.classList.add('sparkle');
+                
+                const size = Math.random() * 15 + 10;
+                sparkle.style.width = `${size}px`;
+                sparkle.style.height = `${size}px`;
+                sparkle.style.left = `${x}px`;
+                sparkle.style.top = `${y}px`;
+                
+                const dx = (Math.random() - 0.5) * 200;
+                const dy = (Math.random() - 0.5) * 200;
+                sparkle.style.setProperty('--dx', `${dx}px`);
+                sparkle.style.setProperty('--dy', `${dy}px`);
+                
+                document.body.appendChild(sparkle);
+                setTimeout(() => sparkle.remove(), 800);
+            }
+        }
+
+        envelopeBtn.addEventListener('click', (e) => {
+            createSparkles(e.clientX, e.clientY);
+            setTimeout(() => {
+                letterModal.classList.add('active');
+            }, 150);
+        });
+
+        letterModal.addEventListener('click', () => {
+            letterModal.classList.remove('active');
+        });
+
+        // Infinite Text Ticker Loop Duplicate
+        const tickerContent = document.querySelector('.ticker-content');
+        tickerContent.innerHTML += tickerContent.innerHTML;
+    </script>
+</body>
+</html>
